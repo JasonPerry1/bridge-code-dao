@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Encrypted Infrastructure DAO Design System - Cyberpunk City Theme
+All colors MUST be HSL. */
+
+@layer base {
+  :root {
+    /* Base Colors - Dark Cyberpunk Theme */
+    --background: 240 10% 3.9%;
+    --foreground: 180 100% 90%;
+
+    --card: 240 10% 5.9%;
+    --card-foreground: 180 100% 90%;
+
+    --popover: 240 10% 5.9%;
+    --popover-foreground: 180 100% 90%;
+
+    /* Encrypted Elements - Electric Blue */
+    --primary: 195 100% 50%;
+    --primary-foreground: 240 10% 3.9%;
+    --primary-glow: 195 100% 70%;
+
+    /* Infrastructure Elements - Amber */
+    --secondary: 45 100% 51%;
+    --secondary-foreground: 240 10% 3.9%;
+    --secondary-glow: 45 100% 70%;
+
+    /* Muted Elements */
+    --muted: 240 5% 15%;
+    --muted-foreground: 180 20% 60%;
+
+    /* Accent - Cyan Glow */
+    --accent: 180 100% 50%;
+    --accent-foreground: 240 10% 3.9%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 180 100% 90%;
+
+    --border: 240 20% 20%;
+    --input: 240 20% 20%;
+    --ring: 195 100% 50%;
+
+    /* Design System Tokens */
+    --radius: 0.75rem;
+
+    /* Custom Infrastructure DAO Tokens */
+    --bridge-primary: 195 100% 50%;
+    --bridge-secondary: 45 100% 51%;
+    --encrypted-glow: 195 100% 70%;
+    --city-lights: 45 100% 65%;
+    --binary-green: 120 100% 50%;
+    
+    /* Gradients */
+    --gradient-encrypted: linear-gradient(135deg, hsl(195 100% 50%), hsl(180 100% 50%));
+    --gradient-infrastructure: linear-gradient(135deg, hsl(45 100% 51%), hsl(35 100% 60%));
+    --gradient-city: linear-gradient(180deg, hsl(240 10% 3.9%), hsl(240 20% 8%));
+    --gradient-hero: linear-gradient(135deg, hsl(240 10% 3.9%) 0%, hsl(195 100% 10%) 50%, hsl(240 10% 3.9%) 100%);
+    
+    /* Shadows and Glows */
+    --glow-encrypted: 0 0 30px hsl(195 100% 50% / 0.3);
+    --glow-infrastructure: 0 0 30px hsl(45 100% 51% / 0.3);
+    --shadow-city: 0 10px 50px hsl(240 10% 0% / 0.8);
+    
+    /* Animations */
+    --transition-glow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s ease-out;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Infrastructure DAO Component Utilities */
+  .encrypted-glow {
+    box-shadow: var(--glow-encrypted);
+    transition: var(--transition-glow);
+  }
+  
+  .infrastructure-glow {
+    box-shadow: var(--glow-infrastructure);
+    transition: var(--transition-glow);
+  }
+  
+  .city-shadow {
+    box-shadow: var(--shadow-city);
+  }
+  
+  .gradient-encrypted {
+    background: var(--gradient-encrypted);
+  }
+  
+  .gradient-infrastructure {
+    background: var(--gradient-infrastructure);
+  }
+  
+  .gradient-city {
+    background: var(--gradient-city);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .binary-text {
+    font-family: 'Courier New', monospace;
+    color: hsl(var(--binary-green));
+    font-weight: 500;
+  }
+  
+  .city-lights {
+    color: hsl(var(--city-lights));
+  }
+  
+  .hover-glow:hover {
+    box-shadow: var(--glow-encrypted);
+    transform: translateY(-2px);
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(195 100% 50% / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(195 100% 50% / 0.6);
+    }
+  }
+}
