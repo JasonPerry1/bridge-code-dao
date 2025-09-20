@@ -1,11 +1,15 @@
 import Header from "@/components/Header";
 import CityFooter from "@/components/CityFooter";
+import { CreateProject } from "@/components/CreateProject";
+import { ContributeToProject } from "@/components/ContributeToProject";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Shield, Users, Clock, MapPin, Filter, Search } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Shield, Users, Clock, MapPin, Filter, Search, Plus, Heart } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
 import {
   Select,
   SelectContent,
@@ -90,6 +94,9 @@ const projects = [
 ];
 
 const Projects = () => {
+  const [showCreateProject, setShowCreateProject] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -99,11 +106,11 @@ const Projects = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="text-foreground">Infrastructure </span>
-              <span className="gradient-encrypted bg-clip-text text-transparent">Projects</span>
+              <span className="text-foreground">Bridge Code </span>
+              <span className="gradient-encrypted bg-clip-text text-transparent">DAO Projects</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Discover and fund tomorrow's infrastructure with complete privacy and transparency.
+              Discover and fund open-source projects with fully homomorphic encryption for complete privacy and transparency.
             </p>
           </div>
           
@@ -123,10 +130,10 @@ const Projects = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">All Categories</SelectItem>
-                  <SelectItem value="transportation">Transportation</SelectItem>
-                  <SelectItem value="energy">Energy</SelectItem>
-                  <SelectItem value="digital">Digital</SelectItem>
-                  <SelectItem value="utilities">Utilities</SelectItem>
+                  <SelectItem value="defi">DeFi</SelectItem>
+                  <SelectItem value="nft">NFT</SelectItem>
+                  <SelectItem value="dao">DAO</SelectItem>
+                  <SelectItem value="infrastructure">Infrastructure</SelectItem>
                 </SelectContent>
               </Select>
               <Select>
@@ -140,6 +147,17 @@ const Projects = () => {
                   <SelectItem value="completed">Completed</SelectItem>
                 </SelectContent>
               </Select>
+              <Dialog open={showCreateProject} onOpenChange={setShowCreateProject}>
+                <DialogTrigger asChild>
+                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                    <Plus className="w-4 h-4 mr-2" />
+                    Create Project
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                  <CreateProject onSuccess={() => setShowCreateProject(false)} />
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         </div>
@@ -213,11 +231,24 @@ const Projects = () => {
                     </div>
 
                     {/* Action Button */}
-                    <Button 
-                      className="w-full encrypted-glow hover-glow gradient-encrypted text-primary-foreground"
-                    >
-                      Contribute Privately
-                    </Button>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button 
+                          className="w-full encrypted-glow hover-glow gradient-encrypted text-primary-foreground"
+                          onClick={() => setSelectedProject(project.id)}
+                        >
+                          <Heart className="w-4 h-4 mr-2" />
+                          Contribute Privately
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                        <ContributeToProject 
+                          projectId={project.id}
+                          projectName={project.title}
+                          onSuccess={() => setSelectedProject(null)}
+                        />
+                      </DialogContent>
+                    </Dialog>
                   </div>
                 </CardContent>
               </Card>

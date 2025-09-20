@@ -1,24 +1,42 @@
-# Bridge Code DAO
+# 🌉 Bridge Code DAO
 
-A decentralized autonomous organization (DAO) platform built with fully homomorphic encryption (FHE) for secure, privacy-preserving governance and project management.
+> **Revolutionary decentralized governance powered by fully homomorphic encryption**
 
-## Features
+Bridge Code DAO represents the next evolution in decentralized autonomous organizations, where privacy meets transparency through cutting-edge cryptographic technology. Built for developers, by developers, this platform enables secure, encrypted governance without compromising on transparency.
 
-- **FHE-Encrypted Governance**: All voting and reputation data is encrypted using fully homomorphic encryption
-- **Project Management**: Create, fund, and manage open-source projects with encrypted funding tracking
-- **Decentralized Voting**: Secure proposal creation and voting with encrypted vote counts
-- **Reputation System**: Encrypted reputation tracking for community members
-- **Wallet Integration**: Seamless connection with popular Web3 wallets via RainbowKit
+## 🚀 Core Innovation
 
-## Technologies
+**Fully Homomorphic Encryption (FHE)** - The first DAO to implement FHE at scale, allowing computations on encrypted data without ever decrypting it. Your votes, contributions, and reputation remain private while maintaining full auditability.
 
-- **Frontend**: React, TypeScript, Vite, Tailwind CSS
-- **Web3**: Wagmi, RainbowKit, Viem
-- **Encryption**: FHE (Fully Homomorphic Encryption)
-- **Blockchain**: Ethereum Sepolia Testnet
-- **UI Components**: shadcn/ui, Radix UI
+## ✨ Key Features
 
-## Getting Started
+- 🔐 **Zero-Knowledge Governance**: Vote and participate without revealing your choices
+- 💎 **Encrypted Treasury Management**: Secure fund allocation with privacy-preserving transparency  
+- 🏗️ **Decentralized Project Funding**: Support open-source projects with encrypted contribution tracking
+- 🎯 **Reputation-Based Voting Power**: Meritocratic governance through encrypted reputation systems
+- 🌐 **Multi-Chain Ready**: Built for Ethereum with expansion to other networks planned
+- 🔗 **Seamless Wallet Integration**: Connect with 50+ wallets through RainbowKit
+
+## 🛠️ Technology Stack
+
+### Frontend Architecture
+- **React 18** with TypeScript for type-safe development
+- **Vite** for lightning-fast builds and hot module replacement
+- **Tailwind CSS** for utility-first styling
+- **shadcn/ui** components for consistent design system
+
+### Web3 Integration
+- **Wagmi v2** for Ethereum interaction hooks
+- **RainbowKit** for multi-wallet connectivity
+- **Viem v2** for low-level blockchain operations
+- **Sepolia Testnet** for secure testing environment
+
+### Cryptographic Security
+- **FHE (Fully Homomorphic Encryption)** for privacy-preserving computations
+- **Zero-Knowledge Proofs** for verifiable private transactions
+- **Encrypted State Management** for sensitive data handling
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -50,6 +68,7 @@ NEXT_PUBLIC_CHAIN_ID=11155111
 NEXT_PUBLIC_RPC_URL=https://sepolia.infura.io/v3/YOUR_INFURA_KEY
 NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=YOUR_WALLET_CONNECT_PROJECT_ID
 NEXT_PUBLIC_CONTRACT_ADDRESS=YOUR_DEPLOYED_CONTRACT_ADDRESS
+NEXT_PUBLIC_FHE_NETWORK_URL=YOUR_FHE_NETWORK_URL
 ```
 
 5. Start the development server:
